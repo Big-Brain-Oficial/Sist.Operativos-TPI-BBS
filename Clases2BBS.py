@@ -174,13 +174,12 @@ class Simulacion:
             if (len(self.cola_suspendidos) + len(self.cola_listos) == 5): 
                 break
             self.cola_suspendidos.append(proceso)
-            self.procesos_nuevos.remove(proceso)
             proceso.estado = ESTADO_SUSPENDIDO
 
 
-        #for proceso in self.cola_suspendidos:
-            #if(proceso in self.procesos_nuevos):
-               #self.procesos_nuevos.remove(proceso)
+        for proceso in self.cola_suspendidos:
+            if(proceso in self.procesos_nuevos):
+               self.procesos_nuevos.remove(proceso)
 
 
 
@@ -235,10 +234,13 @@ class Simulacion:
                 self.memoria.asignar_procesos(proceso, worstfit_libre)
                 self.cola_listos.append(proceso)
                 proceso.estado = ESTADO_LISTO
-                self.cola_suspendidos.remove(proceso)
                 #Asignamos a la cola de listos los procesos que encontraron un lugar en la memoria
 
-        
+
+
+        for proceso in self.cola_listos:
+            if(proceso in self.cola_suspendidos):
+               self.cola_suspendidos.remove(proceso)
 
         #Asignacion de proceso a CPU 
         
