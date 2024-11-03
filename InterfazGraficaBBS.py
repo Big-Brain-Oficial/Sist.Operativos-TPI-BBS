@@ -101,6 +101,12 @@ class InterfazGrafica:
         self.tabla_procesos.heading('tIrrup', text='T. IRRUPCION')
         self.tabla_procesos.heading('tRestante', text='T. RESTANTE')
 
+
+        #Centramos el texto en cada columna
+        for col in ("#1", "#2", "#3", "#4", "#5", "#6"):
+            self.tabla_procesos.column(col, anchor=tk.CENTER)
+            
+
         #Creamos nuestra tabla en la interfaz
         self.tabla_procesos.grid(row=6, column=0, columnspan=2, padx=5, pady=5)
 
