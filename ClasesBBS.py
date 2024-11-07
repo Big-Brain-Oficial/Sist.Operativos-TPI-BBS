@@ -86,6 +86,7 @@ class Simulacion:
             
             if (listaProcesosTotales == 0): 
                 encabezado = next(reader, None)  # Lee la primera línea como encabezado
+                encabezado = [columna.lower() for columna in encabezado]
                 if (encabezado != ['id', 'tam', 'ta', 'ti']):
                     self.banderaError = True
             else:
