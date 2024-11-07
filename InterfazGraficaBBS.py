@@ -101,7 +101,7 @@ class InterfazGrafica:
 
             #Creamos estilo para las fuentes de la memoria y CPU
             style = ttk.Style()
-            style.configure('EstiloM.TLabel', font=('Arial', 13), background= 'yellow')
+            style.configure('EstiloM.TLabel', font=('Arial', 13), background= '#c27e79')
 
             style2 = ttk.Style()
             style2.configure('EstiloCPU.TLabel', font=('Arial', 15), background= 'lightblue') 
